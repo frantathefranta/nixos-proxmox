@@ -1,4 +1,4 @@
-{ pkgs, config, user, ... }:
+{ pkgs, config, user, lib, ... }:
 
 let
   keyFiles = [
@@ -7,7 +7,7 @@ let
       # command to generate the hash:
       # nix-prefetch-url --type sha256 'https://github.com/<github_user>.gpg' | xargs nix hash to-sri --type sha256
       url = "https://github.com/frantathefranta.keys";
-      hash = "sha256-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+      hash = "sha256-ySYOPpO4AYfsBOLOGlk20AYS5le2TDPmVVNFYDLwpBg=";
     })
   ];
 in
