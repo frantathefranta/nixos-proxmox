@@ -1,5 +1,5 @@
 {
-  user = "kev";
-  timeZone = "Asia/Shanghai";
+  user = "franta";
+  timeZone = "America/Detroit";
   defaultLocale = "en_US.UTF-8";
 }
