@@ -1,4 +1,4 @@
-{ pkgs, config, user, lib, ... }:
+{ pkgs, config, user, ... }:
 
 let
   keyFiles = [

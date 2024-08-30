@@ -14,14 +14,17 @@ jobs:
 
       - name: Install Nix
         uses: cachix/install-nix-action@v27
+
+      - name: Update flake.lock
+        id: update
+        uses: DeterminateSystems/update-flake-lock@v23
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v27
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: nix build .#proxmox-image
       - run: nix flake check
+      - run: nix build .#proxmox-image
 
-      # - name: Update flake.lock
-      #   id: update
-      #   uses: DeterminateSystems/update-flake-lock@v20
-      #
-      # - name: Print PR number
-      #   run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
+      - name: Print PR number
+        run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
