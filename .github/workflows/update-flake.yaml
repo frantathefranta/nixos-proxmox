@@ -15,9 +15,9 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v27
 
-      - name: Update flake.lock
-        id: update
-        uses: DeterminateSystems/update-flake-lock@v23
+      # - name: Update flake.lock
+      #   id: update
+      #   uses: DeterminateSystems/update-flake-lock@v23
 
       - name: Install Nix
         uses: cachix/install-nix-action@v27
@@ -26,5 +26,10 @@ jobs:
       - run: nix flake check
       - run: nix build .#proxmox-image
 
-      - name: Print PR number
-        run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
+      - name: Export proxmox-image
+        uses: actions/upload-artifact@v4
+        with:
+          name: proxmox-image.vma.zst
+          path: result/*.vma.zst
+      # - name: Print PR number
+      #   run: echo Pull request number is ${{ steps.update.outputs.pull-request-number }}.
